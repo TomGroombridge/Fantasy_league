@@ -4,8 +4,17 @@
 <%= form.label :name %>
 <%= form.text_field :name %>
 
-
-
+<br>
+<%= form.label 'Date Of Birth' %>
+<%= form.date_select :DateOfBirth,
+  {:start_year => Time.now.year,
+  :end_year => 1900,
+  :use_short_month => true,
+  :order => [:month, :day, :year],
+  :prompt => {:month => 'Month', :day => 'Day', :year => 'Year'}},
+  {:class => 'year',
+  :id => 'user_birthday'}
+%>
 
 <br>
 
