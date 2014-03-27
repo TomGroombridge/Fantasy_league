@@ -36,7 +36,7 @@ describe 'adding a new player to the list ' do
 			expect(page).to have_content '50'
 		end
 
-		it "shoudl be able to add a discipline level to the player " do 
+		it "should be able to add a discipline level to the player " do 
 			visit 'players/new'
 			fill_in 'Name', with: 'Tom Groombridge'
 			fill_in 'Shooting', with: '50'
@@ -47,8 +47,31 @@ describe 'adding a new player to the list ' do
 			expect(page).to have_content '50'
 			expect(page).to have_content '50'
 			expect(page).to have_content 'Bad'			
-
 		end
+
+		it "should be able to add what team the player plays for" do 
+			visit 'players/new'
+			fill_in 'Name', with: 'Tom Groombridge'
+			fill_in 'Shooting', with: '50'
+			fill_in 'Defending', with: '50'
+			select 'Bad', from: 'Discipline'
+			select '1', from: 'Team'
+			click_button 'Create Player'
+			expect(page).to have_content 'Tom Groombridge'
+			expect(page).to have_content '50'
+			expect(page).to have_content '50'
+			expect(page).to have_content 'Bad'
+			expect(page).to have_content '1'
+		end
+
+
+		
+
+
+
+
+
+
 end
 
 

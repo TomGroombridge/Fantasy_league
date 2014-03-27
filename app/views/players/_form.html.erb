@@ -11,10 +11,15 @@
 
 <%= form.label :defending %>
 <%= form.text_field :defending %>
+<%#=  form.range_field :discipline, :min => 0, :max => 250 %>
 <br>
 
 <%= form.label :discipline %>
 <%= form.select :discipline, options_for_select(%w[Excellent Good Bad Poor]) %>
+<br>
+
+<%= form.label :team %>
+<%= form.select :team, options_for_select(1..5)%>
 <br>
 
 <%= form.label 'Date Of Birth' %>
