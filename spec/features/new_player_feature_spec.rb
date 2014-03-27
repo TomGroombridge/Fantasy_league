@@ -65,7 +65,22 @@ describe 'adding a new player to the list ' do
 		end
 
 
-		
+		it "should be able to add how many years experiance the player has" do 
+			visit 'players/new'
+			fill_in 'Name', with: 'Tom Groombridge'
+			fill_in 'Shooting', with: '50'
+			fill_in 'Defending', with: '50'
+			select 'Bad', from: 'Discipline'
+			select '1', from: 'Team'
+			select '15', from: 'Experiance'
+			click_button 'Create Player'
+			expect(page).to have_content 'Tom Groombridge'
+			expect(page).to have_content '50'
+			expect(page).to have_content '50'
+			expect(page).to have_content 'Bad'
+			expect(page).to have_content '1'
+			expect(page).to have_content '15'
+		end
 
 
 
