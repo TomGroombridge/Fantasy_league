@@ -2,32 +2,48 @@
 	No Players Have Been Entered Yet!
 <% end %>
 
+<div class="container">
+	<div class="row">
+			<% @players.each do  |player| %>
+    <div class="span2 player-image">
+      <img src="<%= player.image_url %>"> 
+    </div>
+    <div class="span4">
+				<blockquote>
+				<p><%= player.name %></p>
 
-<% @players.each do  |player| %>
-	<h1><%= player.name %> </h1>
+				<p><small>
+					<cite title="Source Title">
+						Team: <%= player.team %>
+					</cite>
+				</small>
+				</blockquote>
+	
+				<p>
+				<strong>Shooting:</strong>
+				<%=player.shooting %>
+				<p>
+					
+				<strong>Defending: </strong>
+				<%= player.defending %>
 
-	<p>
-	<strong>Shooting:</strong>
-	<%=player.shooting %>
-	<p>
+				<p>
+				<strong>Discipline: </strong>
+				<%= player.discipline %>
 
-	<strong>Defending: </strong>
-	<%= player.defending %>
 
-	<p>
-	<strong>Discipline: </strong>
-	<%= player.discipline %>
+				<p>
+				<strong>Experiance:<strong>
+				<%= player.experiance %> years
+						
+				<p>
+				<strong>D.O.B: </strong><%= player.DateOfBirth %><p>
+				<%=link_to 'Edit this player', edit_player_path(player) %>
+				<%=link_to 'Delete this player', player_path(player), method: :delete, data:{confirm:'Are you sure'} %>
+		</div>
+		<br>
+			<% end %>
+	</div>
+</div>
 
-	<p>
-	<strong>Team: <strong>
-	<%= player.team %>
 
-	<p>
-	<strong>Experiance:<strong>
-	<%= player.experiance %> years
-			
-	<p>
-	<strong>D.O.B: </strong><%= player.DateOfBirth %><p>
-	<%=link_to 'Edit this player', edit_player_path(player) %>
-	<%=link_to 'Delete this player', player_path(player), method: :delete, data:{confirm:'Are you sure'} %>
-<% end %>

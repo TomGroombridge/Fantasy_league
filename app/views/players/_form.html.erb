@@ -25,8 +25,8 @@
 
 <%= form.label :experiance %>
 <%= form.select :experiance, options_for_select(1..20)%> years
-
 <br>
+
 <%= form.label 'Date Of Birth' %>
 <%= form.date_select :DateOfBirth,
   {:start_year => Time.now.year,
@@ -35,10 +35,11 @@
   :order => [:month, :day, :year],
   :prompt => {:month => 'Month', :day => 'Day', :year => 'Year'}},
   {:class => 'year',
-  :id => 'user_birthday'}
-%>
-
+  :id => 'user_birthday'}%>
 <br>
+
+<%= form.label :image_url %>
+<%= form.text_field :image_url%>
 
 <%= form.submit %>
 <% end %>

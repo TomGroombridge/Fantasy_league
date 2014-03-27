@@ -82,6 +82,25 @@ describe 'adding a new player to the list ' do
 			expect(page).to have_content '15'
 		end
 
+		it "should be able to attach an image to a player" do 
+			visit 'players/new'
+			fill_in 'Name', with: 'Tom Groombridge'
+			fill_in 'Shooting', with: '50'
+			fill_in 'Defending', with: '50'
+			select 'Bad', from: 'Discipline'
+			select '1', from: 'Team'
+			select '15', from: 'Experiance'
+			attach_file 'Image', Rails.root.join('spec/images/tom_g.png')
+			click_button 'Create Player'
+			expect(page).to have_content 'Tom Groombridge'
+			expect(page).to have_content '50'
+			expect(page).to have_content '50'
+			expect(page).to have_content 'Bad'
+			expect(page).to have_content '1'
+			expect(page).to have_content '15'
+
+		end
+
 
 
 
