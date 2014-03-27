@@ -22,4 +22,11 @@ class PlayersController < ApplicationController
 		@player.update params[:player].permit(:name, :DateOfBirth)
 		redirect_to '/players'
 	end
+
+	def destroy
+		@player = Player.find params[:id]
+		@player.delete
+		redirect_to '/players'
+	end
+	
 end
