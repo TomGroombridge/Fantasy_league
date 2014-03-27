@@ -9,7 +9,7 @@ class PlayersController < ApplicationController
 	end
 
 	def create
-		@player = Player.create params[:player].permit(:name, :DateOfBirth)
+		@player = Player.create params[:player].permit(:name, :DateOfBirth, :shooting, :defending, :discipline)
 		redirect_to '/players'
 	end
 
@@ -19,7 +19,7 @@ class PlayersController < ApplicationController
 
 	def update
 		@player = Player.find params[:id]
-		@player.update params[:player].permit(:name, :DateOfBirth)
+		@player.update params[:player].permit(:name, :DateOfBirth, :shooting, :defending, :discipline)
 		redirect_to '/players'
 	end
 

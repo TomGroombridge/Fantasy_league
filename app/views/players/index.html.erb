@@ -5,7 +5,21 @@
 
 <% @players.each do  |player| %>
 	<h1><%= player.name %> </h1>
-	<p><%= player.DateOfBirth %><p>
+
+	<p>
+	<strong>Shooting:</strong>
+	<%=player.shooting %>
+	<p>
+
+	<strong>Defending: </strong>
+	<%= player.defending %>
+
+	<p>
+	<strong>Discipline: </strong>
+	<%= player.discipline %>
+			
+	<p>
+	<strong>D.O.B: </strong><%= player.DateOfBirth %><p>
 	<%=link_to 'Edit this player', edit_player_path(player) %>
 	<%=link_to 'Delete this player', player_path(player), method: :delete, data:{confirm:'Are you sure'} %>
 <% end %>

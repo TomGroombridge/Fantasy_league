@@ -3,8 +3,20 @@
 
 <%= form.label :name %>
 <%= form.text_field :name %>
-
 <br>
+
+<%= form.label :shooting %>
+<%= form.text_field :shooting %>
+<br>
+
+<%= form.label :defending %>
+<%= form.text_field :defending %>
+<br>
+
+<%= form.label :discipline %>
+<%= form.select :discipline, options_for_select(%w[Excellent Good Bad Poor]) %>
+<br>
+
 <%= form.label 'Date Of Birth' %>
 <%= form.date_select :DateOfBirth,
   {:start_year => Time.now.year,
