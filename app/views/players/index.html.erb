@@ -1,3 +1,9 @@
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#">Home</a></li>
+  <li><a href="#">Profile</a></li>
+  <li><a href="#">Messages</a></li>
+</ul>
+
 <% if @players.none? %>
 	No Players Have Been Entered Yet!
 <% end %>
@@ -5,10 +11,10 @@
 <div class="container">
 	<div class="row">
 			<% @players.each do  |player| %>
-    <div class="span2 player-image">
+    <div class="span2 player-image" style="padding-top:30px">
       <img src="<%= player.image_url %>"> 
     </div>
-    <div class="span4">
+    <div class="span4 player-image" style="padding-top:30px">
 				<blockquote>
 				<p><%= player.name %></p>
 
@@ -41,9 +47,7 @@
 				<%=link_to 'Edit this player', edit_player_path(player) %>
 				<%=link_to 'Delete this player', player_path(player), method: :delete, data:{confirm:'Are you sure'} %>
 		</div>
-		<br>
 			<% end %>
 	</div>
 </div>
-
 
