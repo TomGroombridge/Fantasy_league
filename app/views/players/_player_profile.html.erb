@@ -38,6 +38,7 @@
 
 				<%=link_to 'Edit this player', edit_player_path(player) %>
 				<%=link_to 'Delete this player', player_path(player), method: :delete, data:{confirm:'Are you sure'} %>
+				<%= link_to 'view player profile', player_path(player)%>
 		</div>
 			<% end %>
 	</div>
