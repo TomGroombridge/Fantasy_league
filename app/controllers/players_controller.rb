@@ -5,12 +5,11 @@ class PlayersController < ApplicationController
 	end
 
 	def new
-		authenticate_user!
 		@player = Player.new
 	end
 
 	def create
-		@player = Player.create params[:player].permit(:name, :DateOfBirth, :shooting, :defending, :discipline, :team, :experiance, :image_url)
+		@player = Player.create params[:player].permit(:name, :DateOfBirth, :shooting, :defending, :discipline, :team, :experiance, :image)
 		redirect_to '/players'
 	end
 
@@ -22,7 +21,7 @@ class PlayersController < ApplicationController
 	def update
 		authenticate_user!
 		@player = Player.find params[:id]
-		@player.update params[:player].permit(:name, :DateOfBirth, :shooting, :defending, :discipline, :team, :experiance, :image_url)
+		@player.update params[:player].permit(:name, :DateOfBirth, :shooting, :defending, :discipline, :team, :experiance, :image)
 		redirect_to '/players'
 	end
 
@@ -31,6 +30,10 @@ class PlayersController < ApplicationController
 		@player = Player.find params[:id]
 		@player.delete
 		redirect_to '/players'
+	end
+
+	def show
+		@player = Player.find params[:id]
 	end
 	
 end

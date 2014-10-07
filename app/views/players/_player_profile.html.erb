@@ -2,7 +2,7 @@
 	<div class="row">
 			<% @players.each do  |player| %>
     <div class="span2 player-image" style="padding-top:30px">
-      <img src="<%= player.image_url %>"> 
+      <%= image_tag player.image.url %>
     </div>
     <div class="span4 player-image" style="padding-top:30px">
 				<blockquote>
@@ -35,11 +35,14 @@
 				<p>
 				<strong>D.O.B: </strong><%= player.DateOfBirth %>
 				<p>
-
-				<%=link_to 'Edit this player', edit_player_path(player) %>
-				<%=link_to 'Delete this player', player_path(player), method: :delete, data:{confirm:'Are you sure'} %>
+				<% if user_signed_in? %>
+					<%=link_to 'Edit this player', edit_player_path(player) %>
+					<%=link_to 'Delete this player', player_path(player), method: :delete, data:{confirm:'Are you sure'} %>
+				<% end %>
 				<%= link_to 'view player profile', player_path(player)%>
 		</div>
 			<% end %>
 	</div>
 </div>
+
+
