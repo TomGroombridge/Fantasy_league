@@ -12,9 +12,9 @@
 
 <ul class="nav nav-tabs">
   <li class="active"><a href="#">Home</a></li>
-  <li><a href="#">Profile</a></li>
-  <li><a href="#">Messages</a></li>
+  <li><%= link_to('Players', players_path) %></li>
   <li><%= link_to('New Player', new_player_path) %></li>
+  <li><%= link_to('Fixtures/Results', fixtures_path) %></li>
 <% if user_signed_in? %>
   <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
   <li><%= link_to('Edit registration', edit_user_registration_path) %></li>

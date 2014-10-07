@@ -4,6 +4,7 @@ FantasyLeague::Application.routes.draw do
   devise_for :users
   root "players#index"
   resources :players
+  resources :fixtures
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
